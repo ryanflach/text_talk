@@ -1,5 +1,7 @@
 # TextTalk
 
+_Note: Due to use of the `say` terminal command, this application will not work on Windows_
+
 A simple Elixir command line REPL that takes user input and outputs speech.
 
 The program will default to the voice of 'Junior'. A different voice can be specified by separating the text to speak with `|`.
