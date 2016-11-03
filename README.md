@@ -8,19 +8,19 @@ The program will default to the voice of 'Junior'. A different voice can be spec
 
 Example use of default voice:
 ```
-> What would you like me to repeat ('exit' to quit)?
+> What would you like me to say ('exit' to quit)?
 hello
 ```
 
 Example use of specified voice:
 ```
-> What would you like me to repeat ('exit' to quit)?
+> What would you like me to say ('exit' to quit)?
 hello | boing
 ```
 
 Please see below for a full list of available voices.
 
-The program can be exited at any time with `exit` or `control + C` twice.
+The program can be exited at any time with `exit` (or `control + C` twice).
 
 ## Usage
 
