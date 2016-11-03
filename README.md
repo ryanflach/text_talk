@@ -1,24 +1,68 @@
 # TextTalk
 
-A simple Elixir CLI application for converting user-supplied text to speech.
+A simple Elixir command line REPL that takes user input and outputs speech.
 
-<!-- ## Installation
+The program will default to the voice of 'Junior'. A different voice can be specified by separating the text to speak with `|`.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+Example use of default voice:
+```
+> What would you like me to repeat ('exit' to quit)?
+hello
+```
 
-  1. Add `text_talk` to your list of dependencies in `mix.exs`:
+Example use of specified voice:
+```
+> What would you like me to repeat ('exit' to quit)?
+hello | boing
+```
 
-    ```elixir
-    def deps do
-      [{:text_talk, "~> 0.1.0"}]
-    end
-    ```
+Please see below for a full list of available voices.
 
-  2. Ensure `text_talk` is started before your application:
+The program can be exited at any time with `exit` or `control + C` twice.
 
-    ```elixir
-    def application do
-      [applications: [:text_talk]]
-    end
-    ```
- -->
+## Usage
+
+Clone the application
+```
+$ git clone git@github.com:ryanflach/text_talk.git
+```
+`cd` into the directory and compile
+```
+$ cd text_talk
+$ mix compile
+```
+Launch the application
+```
+$ mix run
+```
+
+### Available voices
+Female Voices
+- Agnes
+- Kathy
+- Princess
+- Vicki
+- Victoria
+
+Male Voices
+- Alex
+- Bruce
+- Fred
+- Junior
+- Ralph
+
+Novelty Voices
+- Albert
+- Bad News
+- Bahh
+- Bells
+- Boing
+- Bubbles
+- Cellos
+- Deranged
+- Good News
+- Hysterical
+- Pipe Organ
+- Trinoids
+- Whisper
+- Zarvox
