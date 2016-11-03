@@ -8,30 +8,24 @@ defmodule TextTalk.Speech do
   def get_input do
     IO.puts "Note: To specify a voice, pass it as a second argument after '|'"
     IO.puts "For example, 'hello | Boing' would say hello in the Boing voice.\n\n"
-    line = IO.gets "What would you like me to repeat ('exit' to quit)?\n"
-    process_input(line)
+    IO.gets("What would you like me to say ('exit' to quit)?\n")
+      |> process_input
+    get_input
   end
 
   defp process_input(input) do
-    line = String.split(input, "|")
-           |> Enum.map(fn(x) -> String.trim(x) end)
-
-    if String.downcase(hd(line)) == "exit" do
-      exit_program
-    end
-
-    send_to_speech(line)
+    input
+      |> String.downcase
+      |> String.split("|")
+      |> Enum.map(&String.trim/1)
+      |> send_to_speech
   end
 
-  defp send_to_speech(line) when length(line) < 2 do
-    speak(hd(line))
-    get_input
-  end
+  defp send_to_speech(["exit" | _]), do: exit_program
 
-  defp send_to_speech(line) do
-    speak(hd(line), tl(line))
-    get_input
-  end
+  defp send_to_speech([text]), do: speak(text)
+
+  defp send_to_speech([text, voice | _]), do: speak(text, voice)
 
   defp speak(line, voice \\ "Junior") do
     System.cmd "say", ["-v#{voice}", line]
